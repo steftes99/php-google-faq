@@ -41,7 +41,7 @@ Ci sono diverse domande con relative risposte. Gestire il “Database” e la vi
     
     $footer = ['Google','Tutto su Google','Privacy','Termini'];
 
-    $languages = ['italiano', 'espanol','deutsch','dansk'];
+    $languages = ['italiano', 'Espanol','Deutsch','French','English'];
 
     ?>
     <!DOCTYPE html>
@@ -61,6 +61,62 @@ Ci sono diverse domande con relative risposte. Gestire il “Database” e la vi
         <title>Document</title>
     </head>
     <body>
+        <header class="position-fixed top-0 start-0 end-0 bg-light">
+            <div class="top my-2 d-flex justify-content-between px-5">
+                <!-- inizio parte sinistra -->
+                <div>
+                    <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Google_logo_%282010-2013%29.svg/2560px-Google_logo_%282010-2013%29.svg.png" alt="logo google">
+                    <span class="text-secondary fs-4 align-middle">Privacy e termini</span>
+                </div>
+                <!-- fine parte sinistra -->
+
+                <!-- inizio parte destra -->
+                <div class="top my-2 d-flex justify-content-between align-items-center px-5">
+                    <i class="fas fa-th text-secondary"></i>
+                    <button type="button" class="btn btn-primary mx-3">Accedi</button>
+                </div>
+                <!-- fine parte destra -->
+            </div>
+            <div class="bottom border-bottom px-5">
+                <ul class="list-inline">
+                    <?php foreach($navbar as $link){?>
+                        <li class="list-inline-item me-5"><a href="#" class="text-decoration-none text-secondary"><?php echo $link; ?></a></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </header>
+
+        <main class="mt-200 p-5 my-5">
+            <div class="ms-container text-wrap">
+               <?php foreach($faq as $question => $answers){ ?>
+                 <h2 class="fs-4 fw-bold mt-5 mb-4"><?php echo $question; ?></h2> 
+                 <?php foreach($answers as $answer){ ?>
+                    <p class="my-5"><?php echo $answer; ?></p>
+                    <?php } ?>
+                <?php } ?>    
+            </div>
+        </main>
         
+        <footer class="py-3">
+            <div class="ms-container d-flex justify-content-around">
+                <div class="left">
+                    <ul class="list-inline">
+                        <?php foreach($footer as $link){ ?>
+                            <li class="list-inline-item me-3"><a href="#" class="text-decoration-none text-secondary"><?php echo $link ?></a></li>
+                        <?php } ?>    
+                    </ul>
+                </div>
+                <div class="right">
+                    <i class="far fa-comment-alt"></i>
+                    <select name="language" id="language" class="ms-2">
+                        <?php foreach($languages as $lang){
+                            echo '<option value="' . $lang . '">' . ucfirst($lang) . '</option>';
+                        }?>
+       
+                    </select>
+                </div>
+
+            </div>
+        </footer>
     </body>
     </html>
